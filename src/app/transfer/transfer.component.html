@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card mt-4">
+        <div class="card-header">
+          <h4 class="card-title">Transfer Funds</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="accountNumber" class="form-label">Account Number
+                <span style="font-size: small">(a valid account number)</span></label>
+              <input type="tel" class="form-control" id="accountNumber" formControlName="accountNumber" />
+              <div *ngIf="
+                  form.get('accountNumber')?.hasError('required') &&
+                  form.get('accountNumber')?.dirty
+                " class="text-danger">
+                Account Number is required
+              </div>
+              <div *ngIf="
+                  form.get('accountNumber')?.hasError('pattern') &&
+                  form.get('accountNumber')?.dirty
+                " class="text-danger">
+                Invalid account number format
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="bank">Select Bank</label>
+              <select name="bank" class="form-control" id="accountName" formControlName="bank">
+                <option value="EasyShare">EasyShare</option>
+                <option *ngFor="let bank of bankList" [value]="bank.code">
+                  {{ bank.name }}
+                </option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="amount" class="form-label">Amount</label>
+              <input type="text" class="form-control" id="amount" formControlName="amount" />
+              <div *ngIf="
+                  form.get('amount')?.hasError('required') &&
+                  form.get('amount')?.dirty
+                " class="text-danger">
+                Amount is required
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="pin" class="form-label">PIN</label>
+              <input type="password" class="form-control" id="pin" formControlName="pin" />
+              <div *ngIf="
+                  form.get('pin')?.hasError('required') &&
+                  form.get('pin')?.dirty
+                " class="text-danger">
+                PIN is required
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="notes" class="form-label">Notes</label>
+              <textarea class="form-control" id="notes" formControlName="notes" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+              Transfer
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,85 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    background-color: #040023 ;
+}
+
+.navbar-brand {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.navbar-toggler-icon {
+    color: #ffffff;
+}
+
+.welSect {
+    background-image: url(https://img.freepik.com/premium-photo/photo-portrait-smiling-young-businessman-checking-his-phone-elevator_763111-319241.jpg?w=740);
+    color: #ffffff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 100px 0;
+    height: 70vh;
+}
+
+.welSect h2 {
+    font-size: 3rem;
+}
+
+.welSect p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.welSect button {
+    font-size: 1.25rem;
+    padding: 10px 20px;
+}
+
+#easyShareService {
+    background-color: #ffffff;
+    padding: 80px 0;
+}
+
+#easyShareService h2 {
+    color: #040023 ;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+#chooseUs {
+    text-align: center;
+    padding: 20px;
+}
+
+#chooseUs img {
+    width: 80px;
+}
+.btn-color{
+   background-color:#040023; 
+}
+.btn-outline{
+    border: 1px solid #040023 ;
+}
+
+#easysharecontact {
+    background-color: #040023 ;
+    color: #ffffff;
+    padding: 50px 0;
+}
+
+#easysharecontact h3 {
+    font-size: 2.5rem;
+}
+
+#easysharecontact ul {
+    list-style: none;
+    padding: 0;
+}
+
+#easysharecontact li {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}

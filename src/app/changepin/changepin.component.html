@@ -1,0 +1,105 @@
+<!-- change-pin.component.html -->
+<app-navbar></app-navbar>
+<div class="container col-md-6 m-auto mt-5">
+  <div class="container d-md-flex gap-5"  style="margin-top: 0.9in !important;">
+    <form [formGroup]="changePinForm" (ngSubmit)="onSubmitPin()" class="shadow p-4 col-md-7">
+      <span class="fs-5">Change Your Transaction PIN </span><span style="font-size: smaller;">(default PIN is
+        1234)</span>
+      <div class={{style}}>{{msg}}</div>
+
+      <div class="input_box"
+        [ngClass]="{'has-error': changePinForm.get('current_pin')?.invalid && changePinForm.get('current_pin')?.dirty,
+                                                'has-success': changePinForm.get('current_pin')?.valid && changePinForm.get('current_pin')?.dirty}">
+        <input type="tel" placeholder="Current PIN" formControlName="current_pin" required>
+        <div class="icon"><i class="fas fa-lock"></i></div>
+      </div>
+      <div class="text-danger"
+        *ngIf="changePinForm.get('current_pin')?.invalid && changePinForm.get('current_pin')?.dirty">
+        <span *ngIf="changePinForm.get('current_pin')?.hasError('required')">Current PIN is required</span>
+        <span *ngIf="changePinForm.get('current_pin')?.hasError('minlength')">PIN must be 4 digits</span>
+        <span *ngIf="changePinForm.get('current_pin')?.hasError('maxlength')">PIN must be 4 digits</span>
+      </div>
+
+      <div class="input_box" [ngClass]="{
+                'has-error': changePinForm.get('new_pin')?.invalid && changePinForm.get('new_pin')?.dirty,
+                'has-success': changePinForm.get('new_pin')?.valid && changePinForm.get('new_pin')?.dirty
+              }">
+        <input type="tel" placeholder="New PIN" formControlName="new_pin" required>
+        <div class="icon"><i class="fas fa-lock"></i></div>
+      </div>
+      <div class="text-danger" *ngIf="changePinForm.get('new_pin')?.invalid && changePinForm.get('new_pin')?.dirty">
+        <span *ngIf="changePinForm.get('new_pin')?.hasError('required')">New PIN is required</span>
+        <span *ngIf="changePinForm.get('new_pin')?.hasError('minlength')">PIN must be 4 digits</span>
+        <span *ngIf="changePinForm.get('new_pin')?.hasError('maxlength')">PIN must be 4 digits</span>
+      </div>
+      <div class="input_box" [ngClass]="{
+                'has-error': changePinForm.get('new_pin')?.invalid && changePinForm.get('new_pin')?.dirty,
+                'has-success': changePinForm.get('new_pin')?.valid && changePinForm.get('new_pin')?.dirty
+              }">
+        <input type="tel" placeholder="Confirm PIN" formControlName="confirm_pin" required>
+        <div class="icon"><i class="fas fa-lock"></i></div>
+      </div>
+      <div class="text-danger"
+        *ngIf="changePinForm.get('confirm_pin')?.invalid && changePinForm.get('confirm_pin')?.dirty">
+        <span *ngIf="changePinForm.get('confirm_pin')?.hasError('required')">New PIN is required</span>
+        <span *ngIf="changePinForm.get('confirm_pin')?.hasError('minlength')">PIN must be 4 digits</span>
+        <span *ngIf="changePinForm.get('confirm_pin')?.hasError('maxlength')">PIN must be 4 digits</span>
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-2" [disabled]="!changePinForm.valid">Change PIN</button>
+    </form>
+
+    <!-- change-password.component.html -->
+    <form [formGroup]="changePasswordForm" (ngSubmit)="onSubmitPassword()" class="shadow p-4 col-md-7">
+      <span class="fs-5">Change Your Password</span>
+      <div class={{style}}>{{msg}}</div>
+
+      <div class="input_box" [ngClass]="{
+      'has-error': changePasswordForm.get('current_password')?.invalid && changePasswordForm.get('current_password')?.dirty,
+      'has-success': changePasswordForm.get('current_password')?.valid && changePasswordForm.get('current_password')?.dirty
+    }">
+        <input type="password" placeholder="Current Password" formControlName="current_password" required>
+        <div class="icon"><i class="fas fa-lock"></i></div>
+      </div>
+      <div class="text-danger"
+        *ngIf="changePasswordForm.get('current_password')?.invalid && changePasswordForm.get('current_password')?.dirty">
+        <span *ngIf="changePasswordForm.get('current_password')?.hasError('required')">Current Password is
+          required</span>
+        <span *ngIf="changePasswordForm.get('current_password')?.hasError('minlength')">Password must be at least 6
+          characters</span>
+      </div>
+
+      <div class="input_box" [ngClass]="{
+      'has-error': changePasswordForm.get('new_password')?.invalid && changePasswordForm.get('new_password')?.dirty,
+      'has-success': changePasswordForm.get('new_password')?.valid && changePasswordForm.get('new_password')?.dirty
+    }">
+        <input type="password" placeholder="New Password" formControlName="new_password" required>
+        <div class="icon"><i class="fas fa-lock"></i></div>
+      </div>
+      <div class="text-danger"
+        *ngIf="changePasswordForm.get('new_password')?.invalid && changePasswordForm.get('new_password')?.dirty">
+        <span *ngIf="changePasswordForm.get('new_password')?.hasError('required')">New Password is required</span>
+        <span *ngIf="changePasswordForm.get('new_password')?.hasError('minlength')">Password must be at least 6
+          characters</span>
+      </div>
+
+      <div class="input_box" [ngClass]="{
+      'has-error': changePasswordForm.get('confirm_password')?.invalid && changePasswordForm.get('confirm_password')?.dirty,
+      'has-success': changePasswordForm.get('confirm_password')?.valid && changePasswordForm.get('confirm_password')?.dirty
+    }">
+        <input type="password" placeholder="Confirm Password" formControlName="confirm_password" required>
+        <div class="icon"><i class="fas fa-lock"></i></div>
+      </div>
+      <div class="text-danger"
+        *ngIf="changePasswordForm.get('confirm_password')?.invalid && changePasswordForm.get('confirm_password')?.dirty">
+        <span *ngIf="changePasswordForm.get('confirm_password')?.hasError('required')">Confirm Password is
+          required</span>
+        <span *ngIf="changePasswordForm.get('confirm_password')?.hasError('minlength')">Password must be at least 6
+          characters</span>
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-2" [disabled]="!changePasswordForm.valid">Change Password</button>
+    </form>
+
+  </div>
+</div>

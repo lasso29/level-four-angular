@@ -1,0 +1,217 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@1,9..40,600&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'DM Sans', sans-serif;
+}
+
+body{
+background-color: #040023 !important ;
+  /* background: radial-gradient(ellipse at 50% 50%, #403d51, #6f718b 100%) !important; */
+  min-height: 60vw !important;
+}
+@media screen and (max-width: 600px){
+  body{
+      min-height: 100vh;
+
+  }
+}
+.main_div{
+    background: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+  }
+  .main_div .title{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+  }
+  .main_div .social_icons{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+ 
+  form {
+    margin-top: 25px;
+  }
+  form .input_box{
+    height: 50px;
+    width: 100%;
+    position: relative;
+    margin-top: 15px;
+  }
+  .input_box input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    padding-left: 45px;
+    font-size: 17px;
+    transition: all 0.3s ease;
+  }
+  .input_box input:focus{
+    border-color: #0166E6;
+  }
+  .input_box select{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    padding-left: 45px;
+    font-size: 17px;
+    transition: all 0.3s ease;
+  }
+  .input_box select:focus{
+    border-color: #0166E6;
+  }
+  .input_box .icon{
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    color: grey;
+  }
+  form .option_div{
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .option_div .check_box{
+    display: flex;
+    align-items: center;
+  }
+  .option_div span{
+    margin-left: 5px;
+    font-size: 16px;
+    color: #333;
+  }
+  .option_div .forget_div a{
+    font-size: 16px;
+    color: #0166E6;
+  }
+  .button input{
+    padding-left: 0;
+    background: #0166E6;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s linear;
+  }
+  .button input:hover{
+    background: #00AAF6;
+  }
+  form .sign_up{
+    text-align: center;
+    margin-top: 25px;
+  }
+  .sign_up a{
+    color: #0166E6;
+  }
+  form a{
+    text-decoration: none;
+  }
+
+  body {
+    background-color: #fbfbfb;
+  }
+  @media (min-width: 991.98px) {
+    main {
+      padding-left: 240px;
+    }
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 58px 0 0; /* Height of navbar */
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+    width: 240px;
+    z-index: 600;
+  }
+  
+  @media (max-width: 991.98px) {
+    .sidebar {
+      width: 100%;
+    }
+  }
+  .sidebar .active {
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+  }
+  
+  .sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto; 
+  }
+
+  .form-control:focus{
+    border-color: #0166E6;
+ box-shadow: none;
+  }
+
+  
+  .input_box.has-error input {
+    border-color: red;
+  }
+  
+  .input_box.has-success input {
+    border-color: green;
+  }
+  
+  .invalid-feedback {
+    color: red;
+    margin-top: 5px;
+  }
+  
+  /* Add similar styles for other form controls */
+  
+.smallDiv{
+  height: 130px;
+  color: #fff;
+  padding: 30px;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.smallDiv i {
+  font-size: xx-large;
+}
+.smallDiv p {
+  font-size: medium;
+  padding-top: 10px;
+}
+.smallDiv:nth-child(1) {
+  background-color: #3498db; /* Blue */
+}
+
+.smallDiv:nth-child(2) {
+  background-color: #e74c3c; /* Red */
+}
+
+.smallDiv:nth-child(3) {
+  background-color: #2ecc71; /* Green */
+}
+
+.smallDiv:nth-child(4) {
+  background-color: #f39c12; /* Yellow */
+}
+
+

@@ -1,0 +1,126 @@
+<section class="col-md-8 col-10 m-auto mt-5">
+    <div class="row gap-2 ms-md-5">
+      <div class="smallDiv col-md">
+        <i class="fas fa-wallet"></i>
+        <p>Fund Wallet</p>
+      </div>
+      <a routerLink="/transfer" class="smallDiv col-md">
+        <i class="fas fa-exchange-alt"></i>
+        <p>Transfer Money</p>
+      </a>
+      <div class="smallDiv col-md" data-bs-toggle="modal" data-bs-target="#buyAirtimeModal">
+        <i class="fas fa-mobile-alt"></i>
+        <p>Buy Airtime</p>
+      </div>
+      <div class="smallDiv col-md" data-bs-toggle="modal" data-bs-target="#buyDataModal">
+        <i class="fas fa-wifi"></i>
+        <p>Buy Data</p>
+      </div>
+    </div>
+  
+    <!-- Buy Data Modal -->
+    <div>
+      <div class="modal fade" id="buyDataModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="buyDataLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="buyDataLabel">Buy Data</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Form -->
+              <form [formGroup]="buyDataForm" (ngSubmit)="onSubmitBuyData()">
+                <div class="mb-3" >
+                  <label for="network" class="form-label">Network</label>
+                  <select  class="form-control" id="dataNetwork"  formControlName="network" (change)="networkChange($event)" required>
+                    <option value="" selected disabled>Choose Network</option>
+                    <option  *ngFor="let item of dataApi"   >{{item.network_name}}</option>
+                  </select>
+                </div>
+                
+                <div class="mb-3" *ngIf="selectedNetwork">
+                  <label for="plan" class="form-label">Plan</label>
+                  <select class="form-control" id="plan" formControlName="plan" (change)="networkPlan($event)" required>
+                    <option value="" selected disabled>Choose Plan</option>
+                    <option  *ngFor="let item of selectedNetwork"   >{{item.name}}</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="plan" class="form-label">Amount</label>
+                  <input type="text" [value]="selectedPlan.amount" class="form-control" formControlName="amount" >
+              </div>
+              
+                <div class="mb-3">
+                  <label for="phoneNumber" class="form-label" required>Phone Number</label>
+                  <input type="tel" class="form-control" id="dataphoneNumber" formControlName="phoneNumber">
+                </div>
+                <div class="mb-3">
+                  <label for="pin" class="form-label">PIN</label>
+                  <input type="password" class="form-control" id="datapin" formControlName="pin" required>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary" [disabled]="buyDataForm.invalid">Proceed</button>
+                </div>
+              </form>
+              <!-- End Form -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Buy Airtime Modal -->
+    <div>
+      <div class="modal fade" id="buyAirtimeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="buyAirtimeLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="buyAirtimeLabel">Airtime TopUp</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Form -->
+              <form [formGroup]="buyAirtimeForm" (ngSubmit)="onSubmitBuyAirtime()">
+                <div class="mb-3">
+                  <label for="network" class="form-label">Network</label>
+                  <select class="form-control" id="network" formControlName="network" required>
+                    <option value="" selected disabled>Choose Network...</option>
+                    <option value="MTN">MTN</option>
+                    <option value="Airtel">Airtel</option>
+                    <option value="Glo">Glo</option>
+                    <option value="9moblie">9moblie</option>
+                    <option value="Smile">Smile</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="type" class="form-label">Type</label>
+                  <input type="text" class="form-control" id="type" formControlName="type" required>
+                </div>
+                <div class="mb-3">
+                  <label for="amount" class="form-label">Amount</label>
+                  <input type="tel" class="form-control" id="amount" formControlName="amount" required>
+                </div>
+                <div class="mb-3">
+                  <label for="phoneNumber" class="form-label">Phone Number</label>
+                  <input type="tel" class="form-control" id="phoneNumber" formControlName="phoneNumber" required>
+                </div>
+                <div class="mb-3">
+                  <label for="pin" class="form-label">PIN</label>
+                  <input type="password" class="form-control" id="pin" formControlName="pin" required>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary" [disabled]="buyAirtimeForm.invalid">Proceed</button>
+                </div>
+              </form>
+              <!-- End Form -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

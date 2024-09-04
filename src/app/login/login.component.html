@@ -1,0 +1,39 @@
+<div class="main_div m-auto col-md-4 mt-5">
+  <div class="title">Login</div>
+    <h5 class="text-center"><i>Welcome back</i></h5>
+  <form action="#" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+    <div class={{style}}>{{msg}}</div>
+    <div class="input_box" [ngClass]="{'has-error': loginForm.get('email')?.invalid && loginForm.get('email')?.dirty,
+      'has-success': loginForm.get('email')?.valid && loginForm.get('email')?.dirty}">
+      <input type="text" placeholder="Email or Phone number" formControlName="email" class="text-lowercase" required>
+      <div class="icon"><i class="fas fa-envelope"></i></div>
+    </div>
+   
+
+    <div class="input_box" [ngClass]="{'has-error': loginForm.get('password')?.invalid && loginForm.get('password')?.dirty,
+      'has-success': loginForm.get('password')?.valid && loginForm.get('password')?.dirty}">
+      <input type="password" placeholder="Password" formControlName="password" required>
+      <div class="icon"><i class="fas fa-lock"></i></div>
+    </div>
+    <div class="text-danger" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.dirty">
+      <span *ngIf="loginForm.get('password')?.hasError('required')">Password is required</span>
+    </div>
+
+    <div class="option_div">
+      <div class="check_box">
+        <input type="checkbox">
+        <span>Remember me</span>
+      </div>
+      <div class="forget_div">
+        <a href="#">Forgot password?</a>
+      </div>
+    </div>
+    <div class="input_box">
+      <input type="submit" value="Login" class="btn text-white" style="background-color: #040023 ;" [disabled]="!loginForm.valid">
+    </div>
+
+    <div class="sign_up">
+      Not a member? <a routerLink="/register">Register now</a>
+    </div>
+  </form>
+</div>
